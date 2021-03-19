@@ -6,7 +6,23 @@ namespace MyFirstCSApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+
+            // relational operators
+            int x = 10;
+            int y = 11;
+
+            bool isGreater = x > y;
+            bool isLess = x < y;
+            bool isEqual = x == y;
+
+
+
+            Console.WriteLine(isGreater);
+            Console.WriteLine(isLess);
+            Console.WriteLine(isEqual);
+
+
         }
     }
 }
