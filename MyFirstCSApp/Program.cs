@@ -16,12 +16,19 @@ namespace MyFirstCSApp
             bool isLess = x < y;
             bool isEqual = x == y;
 
+            // conditional operators
+
+            bool a = true;
+            bool b = false;
+            bool c = true;
+
+            bool d = a && b;
+            bool e = a || b;
 
 
-            Console.WriteLine(isGreater);
-            Console.WriteLine(isLess);
-            Console.WriteLine(isEqual);
-            Console.WriteLine(!isEqual);
+            Console.WriteLine(d);
+            Console.WriteLine(e);
+            
 
 
 
