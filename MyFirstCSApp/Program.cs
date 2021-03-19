@@ -21,6 +21,8 @@ namespace MyFirstCSApp
             Console.WriteLine(isGreater);
             Console.WriteLine(isLess);
             Console.WriteLine(isEqual);
+            Console.WriteLine(!isEqual);
+
 
 
         }
