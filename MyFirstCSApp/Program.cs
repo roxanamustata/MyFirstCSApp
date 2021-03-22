@@ -25,9 +25,14 @@ namespace MyFirstCSApp
 
             }
             else
-            {
 
-                int a = 4;
+            {
+                Console.WriteLine("{0} is less than {1}", x, y);
+
+            }
+
+
+            int a = 4;
                 switch (a)
                 {
                     case 1:
@@ -55,5 +60,5 @@ namespace MyFirstCSApp
 
             }
         }
+
     }
-}
