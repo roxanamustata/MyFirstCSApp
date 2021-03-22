@@ -8,27 +8,33 @@ namespace MyFirstCSApp
         {
 
 
-            // relational operators
-            int x = 10;
-            int y = 11;
+            // conditional statements
+            int x = 5;
+            int y = 5;
 
-            bool isGreater = x > y;
-            bool isLess = x < y;
-            bool isEqual = x == y;
-
-            // conditional operators
-
-            bool a = true;
-            bool b = false;
-            bool c = true;
-
-            bool d = a && b;
-            bool e = a || b;
-
-
-            Console.WriteLine(d);
-            Console.WriteLine(e);
+            if (x > y)
+            {
+                Console.WriteLine($"{x} is greater than {y}");
+            }
             
+            else if (x == y)
+            {
+                Console.WriteLine($"{x} equals {y}");
+
+            }
+            else
+            {
+
+                Console.WriteLine("{0} is less than {1}", x, y);
+            }
+
+
+
+
+            Console.WriteLine();
+            Console.ReadLine();
+
+
 
 
 
