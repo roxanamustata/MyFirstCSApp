@@ -9,8 +9,10 @@ namespace MyFirstCSApp
 
 
             // conditional statements
-            int x = 5;
-            int y = 5;
+            Console.WriteLine("Please enter a constant: ");
+            int x = int.Parse(Console.ReadLine());
+            Console.WriteLine("Please enter a constant: ");
+            int y = int.Parse(Console.ReadLine());
 
             if (x > y)
             {
