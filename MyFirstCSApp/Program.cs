@@ -18,7 +18,7 @@ namespace MyFirstCSApp
             {
                 Console.WriteLine($"{x} is greater than {y}");
             }
-            
+
             else if (x == y)
             {
                 Console.WriteLine($"{x} equals {y}");
@@ -27,19 +27,33 @@ namespace MyFirstCSApp
             else
             {
 
-                Console.WriteLine("{0} is less than {1}", x, y);
+                int a = 4;
+                switch (a)
+                {
+                    case 1:
+                        Console.WriteLine($"{a} is one");
+                        break;
+                    case 2:
+                        Console.WriteLine($"{a} is two");
+                        break;
+                    case 3:
+                        Console.WriteLine($"{a} is three");
+                        break;
+                    default:
+                        Console.WriteLine("unknown number");
+                        break;
+
+
+                }
+
+
+
+                Console.ReadLine();
+
+
+
+
             }
-
-
-
-
-            Console.WriteLine();
-            Console.ReadLine();
-
-
-
-
-
         }
     }
 }
