@@ -9,9 +9,12 @@ namespace Basics
             Console.WriteLine("Hello World!");
 
             Point p = new Point();
-            p.x = 3;
-            p.y = 3;
-            Console.WriteLine(p.x + ", " + p.y);
+          //  p.x = 3;
+       //     p.y = 3;
+       //     Console.WriteLine(p.x + ", " + p.y);
+
+            Point anotherP = new Point();
+            Origin anotherS = new Origin();
                         
             modify(p);
             Console.WriteLine("Modified p without ref: "+p.x + ", " + p.y);
@@ -28,7 +31,11 @@ namespace Basics
             modifyStructRef(ref s);
             Console.WriteLine("Modified s with ref: " + s.x + ", " + s.y);
 
+            modifyOut(out anotherP);
+            Console.WriteLine("Modified anotherP with out: " + anotherP.x + ", " + anotherP.y);
 
+            modifyStructOut(out anotherS);
+            Console.WriteLine("Modified anotherS with out: " + anotherS.x + ", " + anotherS.y);
 
             Console.ReadLine();
         }
@@ -49,6 +56,13 @@ namespace Basics
 
         }
 
+        private static void modifyOut(out Point point)
+        {
+            point = new Point { x = 1, y = 1 };
+            
+
+        }
+
 
         private static void modifyStruct(Origin point)
         {
@@ -60,6 +74,13 @@ namespace Basics
         private static void modifyStructRef(ref Origin point)
         {
             point = new Origin { x = 0, y = 0 };
+
+        }
+
+        private static void modifyStructOut(out Origin point)
+        {
+            point = new Origin { x = 1, y = 1 };
+
 
         }
 
