@@ -6,36 +6,53 @@ namespace Basics
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //Console.WriteLine("Hello World!");
 
-            Point p = new Point();
-          //  p.x = 3;
-       //     p.y = 3;
-       //     Console.WriteLine(p.x + ", " + p.y);
 
-            Point anotherP = new Point();
-            Origin anotherS = new Origin();
-                        
-            modify(p);
-            Console.WriteLine("Modified p without ref: "+p.x + ", " + p.y);
+            // value types, reference types, ref, out
+            //Point p = new Point();
+            //p.x = 3;
+            //p.y = 3;
+            //Console.WriteLine(p.x + ", " + p.y);
 
-            modifyRef(ref p);
-            Console.WriteLine("Modified p with ref: " + p.x + ", " + p.y);
+            //Point anotherP = new Point();
+            //Origin anotherS = new Origin();
 
-            Origin s=new Origin{ x=10, y=10};
-            Console.WriteLine(s.x + ", " + s.y);
+            //modify(p);
+            //Console.WriteLine("Modified p without ref: "+p.x + ", " + p.y);
 
-            modifyStruct(s);
-            Console.WriteLine("Modified s without ref: " + s.x + ", " + s.y);
+            //modifyRef(ref p);
+            //Console.WriteLine("Modified p with ref: " + p.x + ", " + p.y);
 
-            modifyStructRef(ref s);
-            Console.WriteLine("Modified s with ref: " + s.x + ", " + s.y);
+            //Origin s=new Origin{ x=10, y=10};
+            //Console.WriteLine(s.x + ", " + s.y);
 
-            modifyOut(out anotherP);
-            Console.WriteLine("Modified anotherP with out: " + anotherP.x + ", " + anotherP.y);
+            //modifyStruct(s);
+            //Console.WriteLine("Modified s without ref: " + s.x + ", " + s.y);
 
-            modifyStructOut(out anotherS);
-            Console.WriteLine("Modified anotherS with out: " + anotherS.x + ", " + anotherS.y);
+            //modifyStructRef(ref s);
+            //Console.WriteLine("Modified s with ref: " + s.x + ", " + s.y);
+
+            //modifyOut(out anotherP);
+            //Console.WriteLine("Modified anotherP with out: " + anotherP.x + ", " + anotherP.y);
+
+            //modifyStructOut(out anotherS);
+            //Console.WriteLine("Modified anotherS with out: " + anotherS.x + ", " + anotherS.y);
+
+
+            //boxing 
+            int a = 100;
+            object obj = a;
+            Console.WriteLine("value of obj is: " + obj);
+
+            //unboxing
+            int b =(int) obj;
+            Console.WriteLine("value of b is: " + b);
+
+
+
+
+
 
             Console.ReadLine();
         }
@@ -68,7 +85,6 @@ namespace Basics
         {
             point = new Origin { x = 0, y = 0 };
            
-
         }
 
         private static void modifyStructRef(ref Origin point)
@@ -100,5 +116,6 @@ namespace Basics
         public int y;
 
     }
+
 
 }
