@@ -41,16 +41,13 @@ namespace Basics
 
 
             //boxing 
-            int a = 100;
-            object obj = a;
-            Console.WriteLine("value of obj is: " + obj);
+            //int a = 100;
+            //object obj = a;
+            //Console.WriteLine("value of obj is: " + obj);
 
             //unboxing
-            int b =(int) obj;
-            Console.WriteLine("value of b is: " + b);
-
-
-
+            //int b =(int) obj;
+            //Console.WriteLine("value of b is: " + b);
 
 
 
