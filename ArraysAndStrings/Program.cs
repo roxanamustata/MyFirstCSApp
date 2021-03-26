@@ -13,7 +13,7 @@ namespace ArraysAndStrings
             // Prints the one size array and the sum of its elements
             // I used Stringbuilder for displaying the array
             Console.WriteLine("The sum of elements " + DisplayArray(Numbers) + "is: " + SumElementsOfArray(Numbers));
-            
+
             //Two size array
             int[][] Array = new int[4][] {
                 new int[] { 0, 0, 0},
@@ -92,9 +92,10 @@ namespace ArraysAndStrings
         }
 
 
-        public static void compareStringsByReference (ref string s1, ref string s2)
+        public static void compareStringsByReference(ref string s1, ref string s2)
         {
-           if( s1.GetHashCode() == s2.GetHashCode()) {
+            if (s1.GetHashCode() == s2.GetHashCode())
+            {
                 Console.WriteLine("Strings have same reference");
             }
             else
@@ -104,6 +105,5 @@ namespace ArraysAndStrings
         }
 
     }
-
 
 }
