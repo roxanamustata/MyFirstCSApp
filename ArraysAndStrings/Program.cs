@@ -26,12 +26,27 @@ namespace ArraysAndStrings
             Console.WriteLine(DisplayArray(Array));
 
 
-            string s1 = "Hello";
-            string s2 = "Hello";
-            compareStringsByReference(ref s1, ref s2);
+
+
+            //Just checking if strings have the same reference
+            string s1 =new string("Hello");
+            string s2 = new string("Hello");
+            CompareStringsByHashCode(ref s1, ref s2);
+           
+            //the reference remains the same if I add a space at the end of each string, through 
+            //different methods
+            string s3=s2.PadRight(s2.Length+1);
+            string s4 = new string("Hello ");
+            CompareStringsByHashCode(ref s3, ref s4);
+
+
+            string s5 = s4.Trim();
+            CompareStringsByHashCode(ref s3, ref s5);
+           
 
 
         }
+
         public static StringBuilder DisplayArray(int[] Array)
         {
             StringBuilder sb = new StringBuilder();
@@ -92,15 +107,15 @@ namespace ArraysAndStrings
         }
 
 
-        public static void compareStringsByReference(ref string s1, ref string s2)
+        public static void CompareStringsByHashCode(ref string s1, ref string s2)
         {
             if (s1.GetHashCode() == s2.GetHashCode())
             {
-                Console.WriteLine("Strings have same reference");
+                Console.WriteLine($"Strings {s1} and {s2} have the same reference: {s1.GetHashCode()}, {s2.GetHashCode()}");
             }
             else
             {
-                Console.WriteLine("Strings don't have same reference");
+                Console.WriteLine($"Strings {s1} and {s2} do not have the same reference: {s1.GetHashCode()}, {s2.GetHashCode()}");
             }
         }
 
