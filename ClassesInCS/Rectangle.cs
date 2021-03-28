@@ -6,10 +6,20 @@ namespace ClassesInCS
 {
     public class Rectangle : Unit, IArea
     {
+        private double width;
         private double length;
-        //private double width;
-        public double Width { get; set; }
 
+        public double Width
+        {
+            get
+            {
+                return width;
+            }
+            set
+            {
+                this.width = value;
+            }
+        }
         public double Length
         {
             get
@@ -24,12 +34,6 @@ namespace ClassesInCS
         }
 
 
-     
-
-
-
-
-
         public override string Draw()
         {
             return "rectangle";
@@ -38,7 +42,7 @@ namespace ClassesInCS
 
         public override double CalculateArea()
         {
-            return this.Length*this.Width;
+            return this.Length * this.Width;
         }
     }
 }

@@ -6,7 +6,7 @@ namespace ClassesInCS
 {
     public class Circle : Unit, IArea
     {
-        //private double radius;
+        
 
         public double Radius { get; set; }
 
