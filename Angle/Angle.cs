@@ -1,53 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Angle
 {
-    public struct Angle
+    public struct Angle:IEquatable<Angle>
     {
 
-        private int degrees;
-        private int minutes;
-        private int seconds;
-
-
-        public int Degrees
+        
+        public Angle(int degrees, int minutes, int seconds)
         {
-            get { return degrees; }
-            set
+            if (degrees < 360&&degrees>=0)
             {
-                this.degrees = value;
+                Degrees = degrees;
             }
-
+            else
+            {
+                throw new ArgumentException("Value must be less than 360 and greater than 0");
+            }
+            if (minutes < 60&&minutes>=0)
+            {
+                Minutes = minutes;
+            }
+            else
+            {
+                throw new ArgumentException("Value must be less than 60 and greater than 0");
+            }
+            if (seconds < 60&&seconds>=0)
+            {
+                Seconds = seconds;
+            }
+            else
+            {
+                throw new ArgumentException("Value must be less than 60 and greater than 0");
+            }
         }
 
-        public int Minutes
-        {
-            get { return minutes; }
-            set
-            {
-                if (value < 60)
-                {
-                    this.minutes = value;
-                }
+        public int Degrees { get; private set; }
+           
 
-            }
+        public int Minutes { get; private set; }
 
-        }
-        public int Seconds
-        {
-            get { return seconds; }
-            set
-            {
-                if (value < 60)
-                {
-                    this.seconds = value;
-                }
-
-            }
-
-        }
+        public int Seconds { get; private set; }
 
         public static Angle operator +(Angle a, Angle b)
         {
@@ -83,20 +76,14 @@ namespace Angle
 
         public override string ToString()
         {
-            return this.Degrees + "\x00B0" + this.Minutes + "'" + this.Seconds + "\"";
+            return Degrees + "\x00B0" + Minutes + "'" + Seconds + "\"";
         }
 
 
-        public override bool Equals(object obj)
+        public bool Equals([AllowNull] Angle other)
         {
-            if (!(obj is Angle))
-            {
-                return false;
-            }
-
-            Angle angle = (Angle)obj;
-
-            if (this.Degrees == angle.Degrees && this.Minutes == angle.Minutes && this.Seconds == angle.Seconds)
+            
+            if (Degrees ==other.Degrees && Minutes == other.Minutes && Seconds == other.Seconds)
             {
                 return true;
             }
