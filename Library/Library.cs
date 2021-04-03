@@ -12,7 +12,5 @@ namespace Library
 
         public List<Book> Collection { get; set; } = new List<Book>();
 
-       
-
     }
 }

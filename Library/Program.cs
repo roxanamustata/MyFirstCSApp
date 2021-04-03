@@ -5,93 +5,137 @@ using System.Linq;
 namespace Library
 {
 
-
-
-
-
-    //6. Get the names of all authors that have published at least 3 books
-    //7. Get the names of all authors that are born before 1990 and have written at 
-    //        least 2 books of category "science-fiction"
     public class Program
     {
         static void Main(string[] args)
         {
-            //Create authors and books
-            var Joyce = new Author { Name = "James Joyce", BirthDate = new DateTime(1882, 2, 2, 0, 0, 0) };
-            var Ulysses = new Book
+            // Create authors and books
+            var joyce = new Author { Id = 1, Name = "James Joyce", BirthDate = new DateTime(1882, 2, 2, 0, 0, 0) };
+            var ulysses = new Book
             {
-
+                Id = 1,
                 Title = "Ulysses",
                 PublishDate = new DateTime(1922, 2, 2, 0, 0, 0),
-                Author = Joyce,
+                Author = joyce,
                 Categories = { Category.action, Category.fantasy }
             };
 
-            Joyce.Books.Add(Ulysses);
+            joyce.Books.Add(ulysses);
 
-            var Tolstoi = new Author { Name = "Lev Tolstoi", BirthDate = new DateTime(1828, 8, 28, 0, 0, 0) };
-            var WarAndPeace = new Book
+            var tolstoi = new Author { Id = 2, Name = "Lev Tolstoi", BirthDate = new DateTime(1828, 8, 28, 0, 0, 0) };
+            var warAndPeace = new Book
             {
-
+                Id = 2,
                 Title = "War and Peace",
-                PublishDate = new DateTime(1928, 2, 3, 0, 0, 0),
-                Author = Tolstoi,
+                PublishDate = new DateTime(1931, 2, 3, 0, 0, 0),
+                Author = tolstoi,
                 Categories = { Category.drama, Category.romance }
             };
-
-            Tolstoi.Books.Add(WarAndPeace);
-
-            var Faur = new Author { Name = "Daniela Faur", BirthDate = new DateTime(1982, 10, 5, 0, 0, 0) };
-            var NatureForces1 = new Book
+            var annaKarenina = new Book
             {
+                Id = 6,
+                Title = "Anna Karenina",
+                PublishDate = new DateTime(1931, 2, 3, 0, 0, 0),
+                Author = tolstoi,
+                Categories = { Category.drama, Category.romance }
+            };
+            tolstoi.Books.Add(warAndPeace);
+            tolstoi.Books.Add(annaKarenina);
 
+            var faur = new Author { Id = 3, Name = "Daniela Faur", BirthDate = new DateTime(1982, 10, 5, 0, 0, 0) };
+            var natureForces1 = new Book
+            {
+                Id = 3,
                 Title = "Nature Forces - vol 1",
                 PublishDate = new DateTime(2015, 2, 15, 0, 0, 0),
-                Author = Faur,
-                Categories = { Category.action, Category.fantasy, Category.romance }
+                Author = faur,
+                Categories = { Category.action, Category.fantasy, Category.romance, Category.SF }
             };
 
-            var NatureForces2 = new Book
+            var natureForces2 = new Book
             {
-
+                Id = 4,
                 Title = "Nature Forces - vol 2",
                 PublishDate = new DateTime(2017, 2, 15, 0, 0, 0),
-                Author = Faur,
-                Categories = { Category.action, Category.fantasy, Category.romance }
+                Author = faur,
+                Categories = { Category.action, Category.fantasy, Category.romance, Category.SF }
             };
 
-            //Create library 
-            var Library = new Library();
+            var natureForces3 = new Book
+            {
+                Id = 5,
+                Title = "Nature Forces - vol 3",
+                PublishDate = new DateTime(2019, 2, 15, 0, 0, 0),
+                Author = faur,
+                Categories = { Category.action, Category.fantasy, Category.romance, Category.SF }
+            };
 
-            //1. Add books to the collection
-            Library.AddBook(Ulysses);
-            Library.AddBook(WarAndPeace);
-            Library.AddBook(NatureForces1);
-            Library.AddBook(NatureForces2);
+            // Create library 
+            var library = new Library();
+            var books = library.Collection;
 
-            //2. Remove a book from the collection
-            Library.RemoveBook(NatureForces2);
+            // 1. Add books to the collection
+            library.AddBooks(new List<Book> { ulysses, warAndPeace, natureForces1, natureForces2, natureForces3 });
+            library.AddBook(annaKarenina);
 
-            IEnumerable<Book> Books = Library.Collection;
+
+            // 2. Remove a book from the collection
+            library.RemoveBook(annaKarenina);
+
 
             //3. Retrieve the list of all books
             Console.WriteLine("List of all books:");
-            Books.Display();
+            books.Display();
+
 
             //4. Retrieve the list of all books published after 1980
+
             Console.WriteLine("List of all books published after 1980:");
-            var BooksPublishedAfter80 = Books.Where(b => b.PublishDate.Date.Year > 1980);
-            BooksPublishedAfter80.Display();
+
+            var booksPublishedAfter80 = books.Where(b => b.PublishDate.Date.Year > 1980);
+            booksPublishedAfter80.Display();
+
 
             //5. Retrieve the list of all books with one of the categories: "drama"
+
             Console.WriteLine("List of all books in drama category:");
-            var DramaBooks = Books.Where(b => b.Categories.Contains(Category.drama));
-            DramaBooks.Display();
+
+            var dramaBooks = books.Where(b => b.Categories.Contains(Category.drama));
+            dramaBooks.Display();
+
 
             //6. Get the names of all authors that have published at least 3 books
+
             Console.WriteLine("All authors that have published at least 3 books:");
-            var AuthorsWithAlLeastThreeBooks = Books.GroupBy(b => b.Author).Count() >= 3;
-           
+
+            var authorsWithAtLeastThreeBooks = books
+                    .GroupBy(b => b.Author.Name)
+                    .Where(g => g.Count() >= 3)
+                    .Select(n => new { Name = n.Key });
+
+            authorsWithAtLeastThreeBooks.Display();
+
+            //7. Get the names of all authors that are born before 1990 and have written at 
+            //   least 2 books of category "science-fiction"
+
+            Console.WriteLine("All authors born before 1990 and with at least 2 SF books:");
+
+            var authorsOver30AndAtLeastTwoSFBooks = books
+                    .Where(b => b.Categories.Contains(Category.SF))
+                    .GroupBy(b => b.Author)
+                    .Where(g => g.Key.BirthDate < new DateTime(1990, 1, 1, 0, 0, 0) && g.Count() >= 2)
+                    .Select(n => new { Name = n.Key });
+
+            authorsOver30AndAtLeastTwoSFBooks.Display();
+
+
+            //8.Write a method that returns an IGrouping of Books grouped by the decade they were published in.
+
+            var booksGroupedByPublishDecade = library.GroupBooksByDecades();
+
+            Console.WriteLine("Books grouped by the decade they were published in:");
+            booksGroupedByPublishDecade.DisplayIGrouping();
+
 
 
 

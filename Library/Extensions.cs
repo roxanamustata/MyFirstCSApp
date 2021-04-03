@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace Library
 {
@@ -13,5 +15,27 @@ namespace Library
             }
             Console.WriteLine();
         }
+
+        //I use this for displaying categories
+        public static string DisplayAsString<T>(this IEnumerable<T> source)
+        {
+            var sb = new StringBuilder();
+            foreach (var element in source)
+            {
+                sb.Append($"{element} ");
+            }
+            return sb.ToString();
+        }
+        
+        public static void DisplayIGrouping<T>(this IEnumerable<IGrouping<int, T>> source)
+        {
+
+            foreach (IEnumerable<T> element in source)
+            {
+                Display(element);
+            }
+
+        }
+
     }
 }
