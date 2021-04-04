@@ -39,6 +39,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderingDemo", "..\Advanced
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SetDemos", "..\AdvancedLINQDemos\SetDemos\SetDemos.csproj", "{7864FDDD-05DA-4EB7-8B38-8A20AAE1CC13}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadWriteFile", "ReadWriteFile\ReadWriteFile.csproj", "{291D4BED-AE0F-437D-BEAC-EB1C8EBE1865}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{7864FDDD-05DA-4EB7-8B38-8A20AAE1CC13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7864FDDD-05DA-4EB7-8B38-8A20AAE1CC13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7864FDDD-05DA-4EB7-8B38-8A20AAE1CC13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{291D4BED-AE0F-437D-BEAC-EB1C8EBE1865}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{291D4BED-AE0F-437D-BEAC-EB1C8EBE1865}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{291D4BED-AE0F-437D-BEAC-EB1C8EBE1865}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{291D4BED-AE0F-437D-BEAC-EB1C8EBE1865}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
