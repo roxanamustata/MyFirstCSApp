@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library
+namespace EventsHandlers
 {
-    public enum Category
-
+    public class StartDateEventArgs:EventArgs
     {
-        Drama, Romance, SF, Investigation, Fantasy, Action
+        public DateTime Value { get; set; }
     }
 }
-

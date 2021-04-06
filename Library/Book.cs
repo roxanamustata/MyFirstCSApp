@@ -8,19 +8,26 @@ namespace Library
 {
     public class Book
     {
-        
+
         public int Id { get; set; }
 
         public string Title { get; set; }
-        
+
         public DateTime PublishDate { get; set; }
 
         public Author Author { get; set; }
-        
+
         public List<Category> Categories { get; set; } = new List<Category>();
 
-        public override string ToString() => $"{Id}, {Title}, {PublishDate:dd/MM/yyyy}, {Author}, {Categories.DisplayAsString()}";
+        public int Decade
+        {
+            get
+            {
+                return PublishDate.Year / 10;
+            }
+        }
 
+        public override string ToString() => $"{Id}, {Title}, {PublishDate:dd/MM/yyyy}, {Author}, {Categories.DisplayAsString()}";
 
 
     }

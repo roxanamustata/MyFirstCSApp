@@ -17,7 +17,7 @@ namespace Library
                 Title = "Ulysses",
                 PublishDate = new DateTime(1922, 2, 2, 0, 0, 0),
                 Author = joyce,
-                Categories = { Category.action, Category.fantasy }
+                Categories = { Category.Action, Category.Fantasy }
             };
 
             joyce.Books.Add(ulysses);
@@ -29,7 +29,7 @@ namespace Library
                 Title = "War and Peace",
                 PublishDate = new DateTime(1931, 2, 3, 0, 0, 0),
                 Author = tolstoi,
-                Categories = { Category.drama, Category.romance }
+                Categories = { Category.Drama, Category.Romance }
             };
             var annaKarenina = new Book
             {
@@ -37,7 +37,7 @@ namespace Library
                 Title = "Anna Karenina",
                 PublishDate = new DateTime(1931, 2, 3, 0, 0, 0),
                 Author = tolstoi,
-                Categories = { Category.drama, Category.romance }
+                Categories = { Category.Drama, Category.Romance }
             };
             tolstoi.Books.Add(warAndPeace);
             tolstoi.Books.Add(annaKarenina);
@@ -49,7 +49,7 @@ namespace Library
                 Title = "Nature Forces - vol 1",
                 PublishDate = new DateTime(2015, 2, 15, 0, 0, 0),
                 Author = faur,
-                Categories = { Category.action, Category.fantasy, Category.romance, Category.SF }
+                Categories = { Category.Action, Category.Fantasy, Category.Romance, Category.SF }
             };
 
             var natureForces2 = new Book
@@ -58,7 +58,7 @@ namespace Library
                 Title = "Nature Forces - vol 2",
                 PublishDate = new DateTime(2017, 2, 15, 0, 0, 0),
                 Author = faur,
-                Categories = { Category.action, Category.fantasy, Category.romance, Category.SF }
+                Categories = { Category.Action, Category.Fantasy, Category.Romance, Category.SF }
             };
 
             var natureForces3 = new Book
@@ -67,12 +67,16 @@ namespace Library
                 Title = "Nature Forces - vol 3",
                 PublishDate = new DateTime(2019, 2, 15, 0, 0, 0),
                 Author = faur,
-                Categories = { Category.action, Category.fantasy, Category.romance, Category.SF }
+                Categories = { Category.Action, Category.Fantasy, Category.Romance, Category.SF }
             };
+
+            faur.Books.Add(natureForces1);
+            faur.Books.Add(natureForces2);
+            faur.Books.Add(natureForces3);
 
             // Create library 
             var library = new Library();
-            var books = library.Collection;
+
 
             // 1. Add books to the collection
             library.AddBooks(new List<Book> { ulysses, warAndPeace, natureForces1, natureForces2, natureForces3 });
@@ -85,56 +89,38 @@ namespace Library
 
             //3. Retrieve the list of all books
             Console.WriteLine("List of all books:");
-            books.Display();
+            library.ListAllBooks();
 
 
             //4. Retrieve the list of all books published after 1980
 
             Console.WriteLine("List of all books published after 1980:");
-
-            var booksPublishedAfter80 = books.Where(b => b.PublishDate.Date.Year > 1980);
-            booksPublishedAfter80.Display();
+            library.ListAllBooksAfterYear(1980);
 
 
             //5. Retrieve the list of all books with one of the categories: "drama"
 
             Console.WriteLine("List of all books in drama category:");
-
-            var dramaBooks = books.Where(b => b.Categories.Contains(Category.drama));
-            dramaBooks.Display();
+            library.ListAllBooksInCategory(Category.Drama);
 
 
             //6. Get the names of all authors that have published at least 3 books
 
             Console.WriteLine("All authors that have published at least 3 books:");
+            library.ListAuthorsWithAtLeastAGivenNumberOfBooks(3);
 
-            var authorsWithAtLeastThreeBooks = books
-                    .GroupBy(b => b.Author.Name)
-                    .Where(g => g.Count() >= 3)
-                    .Select(n => new { Name = n.Key });
-
-            authorsWithAtLeastThreeBooks.Display();
 
             //7. Get the names of all authors that are born before 1990 and have written at 
             //   least 2 books of category "science-fiction"
 
             Console.WriteLine("All authors born before 1990 and with at least 2 SF books:");
-
-            var authorsOver30AndAtLeastTwoSFBooks = books
-                    .Where(b => b.Categories.Contains(Category.SF))
-                    .GroupBy(b => b.Author)
-                    .Where(g => g.Key.BirthDate < new DateTime(1990, 1, 1, 0, 0, 0) && g.Count() >= 2)
-                    .Select(n => new { Name = n.Key });
-
-            authorsOver30AndAtLeastTwoSFBooks.Display();
+            library.ListAuthorsBornBeforeAndWithANumberofBooksInGivenCategory(1990, 2, Category.SF);
 
 
             //8.Write a method that returns an IGrouping of Books grouped by the decade they were published in.
 
-            var booksGroupedByPublishDecade = library.GroupBooksByDecades();
-
             Console.WriteLine("Books grouped by the decade they were published in:");
-            booksGroupedByPublishDecade.DisplayIGrouping();
+            library.ListBooksGroupedByPublishingDecade();
 
 
 
