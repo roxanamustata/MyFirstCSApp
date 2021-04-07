@@ -89,7 +89,7 @@ namespace Library
 
             //3. Retrieve the list of all books
             Console.WriteLine("List of all books:");
-            library.Collection.Display();
+            library.GetAllBooks().Display();
 
 
             //4. Retrieve the list of all books published after 1980
@@ -101,7 +101,7 @@ namespace Library
             //5. Retrieve the list of all books with one of the categories: "drama"
 
             Console.WriteLine("List of all books in drama category:");
-            library.ListAllBooksInCategory(Category.Drama);
+            library.ListAllBooksInCategory(Category.Drama).Display();
 
 
             //6. Get the names of all authors that have published at least 3 books
@@ -114,7 +114,7 @@ namespace Library
             //   least 2 books of category "science-fiction"
 
             Console.WriteLine("All authors born before 1990 and with at least 2 SF books:");
-            library.ListAuthorsBornBeforeAndWithANumberofBooksInGivenCategory(1990, 2, Category.SF).Display();
+            library.ListAuthorsBornBeforeAndWithANumberofBooksInCategory(1990, 2, Category.SF).Display();
 
 
             //8.Write a method that returns an IGrouping of Books grouped by the decade they were published in.

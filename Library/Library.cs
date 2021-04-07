@@ -10,22 +10,23 @@ namespace Library
     public class Library
     {
 
-        public List<Book> Collection { get; set; }
+        private List<Book> books;
 
         public Library()
         {
-            Collection = new List<Book>();
+            books = new List<Book>();
         }
+
 
 
         public void AddBook(Book book)
         {
-            Collection.Add(book);
+            books.Add(book);
         }
 
-        public void AddBooks(List<Book> books)
+        public void AddBooks(List<Book> newBooks)
         {
-            foreach (var book in books)
+            foreach (var book in newBooks)
             {
                 AddBook(book);
             }
@@ -33,52 +34,34 @@ namespace Library
 
         public void RemoveBook(Book book)
         {
-            Collection.Remove(book);
+            books.Remove(book);
         }
 
-
-        public List<Book> ListAllBooksAfterYear(int year)
+        public List<Book> GetAllBooks()
         {
-            var booksPublishedAfterYear = Collection.Where(b => b.PublishDate.Date.Year > year);
-            return booksPublishedAfterYear.ToList();
-        }
-
-        public List<Book> ListAllBooksInCategory(Category category)
-        {
-            var booksInCategory = Collection.Where(b => b.Categories.Contains(category));
-            return booksInCategory.ToList();
-        }
-
-        public List<string> ListAuthorsWithAtLeastAGivenNumberOfBooks(int numberOfBooks)
-        {
-            var authorsWithAtLeastNBooks = Collection
-                       .GroupBy(b => b.Author.Name)
-                       .Where(g => g.Count() >= numberOfBooks)
-                       .Select(n => n.Key);
-
-            return authorsWithAtLeastNBooks.ToList();
-
+            return books;
         }
 
 
-        public List<string> ListAuthorsBornBeforeAndWithANumberofBooksInGivenCategory(int Year, int numberOfBooks, Category category)
-        {
-            var authorsOverAndAtLeastBooksInCategory = Collection
-                       .GroupBy(b => b.Author)
-                       .Where(g => g.Key.BirthDate.Year < Year)
-                       .Where(g => g.Key.Books.Count(b => b.Categories.Contains(category)) >= numberOfBooks)
-                       .Select(n => n.Key.Name);
+        public IEnumerable<Book> ListAllBooksAfterYear(int year) => books.Where(b => b.PublishDate.Date.Year > year);
 
-            return authorsOverAndAtLeastBooksInCategory.ToList();
-        }
 
-        public List<IGrouping<int, Book>> ListBooksGroupedByPublishingDecade()
-        {
-            var booksGroupedByPublishDecade = Collection
-                .GroupBy(b => b.Decade);
+        public IEnumerable<Book> ListAllBooksInCategory(Category category) => books.Where(b => b.Categories.Contains(category));
 
-            return booksGroupedByPublishDecade.ToList();
 
-        }
+        public IEnumerable<string> ListAuthorsWithAtLeastAGivenNumberOfBooks(int numberOfBooks) => books
+                                                                                           .GroupBy(b => b.Author.Name)
+                                                                                           .Where(g => g.Count() >= numberOfBooks)
+                                                                                           .Select(n => n.Key);
+
+        public IEnumerable<string> ListAuthorsBornBeforeAndWithANumberofBooksInCategory(int Year, int numberOfBooks, Category category) => books
+                                                                                           .GroupBy(b => b.Author)
+                                                                                           .Where(g => g.Key.BirthDate.Year < Year)
+                                                                                           .Where(g => g.Key.Books.Count(b => b.Categories.Contains(category)) >= numberOfBooks)
+                                                                                           .Select(n => n.Key.Name);
+
+        public IEnumerable<IGrouping<int, Book>> ListBooksGroupedByPublishingDecade() => books.GroupBy(b => b.Decade);
+
+
     }
 }
