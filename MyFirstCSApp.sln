@@ -17,33 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExceptionHandling", "Except
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library", "Library\Library.csproj", "{DF4C8212-D1D7-4E73-BB9C-371AEDFB1508}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtensionMethodsDemo", "..\LINQDemos\ExtensionMethodsDemo\ExtensionMethodsDemo.csproj", "{1D8BA9F1-88CA-45AF-A42A-D11C23B497AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadWriteFile", "ReadWriteFile\ReadWriteFile.csproj", "{291D4BED-AE0F-437D-BEAC-EB1C8EBE1865}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LINQDemos", "..\LINQDemos\LINQDemos\LINQDemos.csproj", "{82946D8B-0827-44B4-BD47-F43BFEF4E886}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventsHandlers", "EventsHandlers\EventsHandlers.csproj", "{A3F14D2F-BEE3-47DE-871E-E68D5C323F04}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DelegatesDemo", "..\LINQDemos\DelegatesDemo\DelegatesDemo.csproj", "{D28AD558-9608-4911-B59D-100FEF059AEA}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupingDemo", "..\AdvancedLINQDemos\GroupingDemo\GroupingDemo.csproj", "{3903D560-89FD-4AE8-BEB1-22A7992070AC}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AggregationDemo", "..\AdvancedLINQDemos\AggregationDemo\AggregationDemo.csproj", "{648CDF81-CEBC-4783-A90F-CA9CA0E78104}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilteringDemo", "..\AdvancedLINQDemos\FilteringDemo\FilteringDemo.csproj", "{50AF5EDD-B609-4C31-932D-BF802E53358C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JoinDemo", "..\AdvancedLINQDemos\JoinDemo\JoinDemo.csproj", "{99C52C10-59DE-4640-9B08-B84D8A4B0B9D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectionDemo", "..\AdvancedLINQDemos\ProjectionDemo\ProjectionDemo.csproj", "{8A4AD821-9652-4780-A3E1-945DB1FD22B7}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuantifiersDemo", "..\AdvancedLINQDemos\QuantifiersDemo\QuantifiersDemo.csproj", "{2DA1A5D7-6536-4775-BD94-5ABEA630A631}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderingDemo", "..\AdvancedLINQDemos\OrderingDemo\OrderingDemo.csproj", "{9FBB1660-CE05-48F5-B290-8D3289018F84}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SetDemos", "..\AdvancedLINQDemos\SetDemos\SetDemos.csproj", "{7864FDDD-05DA-4EB7-8B38-8A20AAE1CC13}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadWriteFile", "ReadWriteFile\ReadWriteFile.csproj", "{291D4BED-AE0F-437D-BEAC-EB1C8EBE1865}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsHandlers", "EventsHandlers\EventsHandlers.csproj", "{A3F14D2F-BEE3-47DE-871E-E68D5C323F04}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObserverDesignPattern", "ObserverDesignPattern\ObserverDesignPattern.csproj", "{EB2CFE0C-71ED-4E8A-B016-0A62FFB0D358}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObserverDesignPattern", "ObserverDesignPattern\ObserverDesignPattern.csproj", "{EB2CFE0C-71ED-4E8A-B016-0A62FFB0D358}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,50 +57,6 @@ Global
 		{DF4C8212-D1D7-4E73-BB9C-371AEDFB1508}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF4C8212-D1D7-4E73-BB9C-371AEDFB1508}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF4C8212-D1D7-4E73-BB9C-371AEDFB1508}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1D8BA9F1-88CA-45AF-A42A-D11C23B497AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1D8BA9F1-88CA-45AF-A42A-D11C23B497AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1D8BA9F1-88CA-45AF-A42A-D11C23B497AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1D8BA9F1-88CA-45AF-A42A-D11C23B497AE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{82946D8B-0827-44B4-BD47-F43BFEF4E886}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{82946D8B-0827-44B4-BD47-F43BFEF4E886}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{82946D8B-0827-44B4-BD47-F43BFEF4E886}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{82946D8B-0827-44B4-BD47-F43BFEF4E886}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D28AD558-9608-4911-B59D-100FEF059AEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D28AD558-9608-4911-B59D-100FEF059AEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D28AD558-9608-4911-B59D-100FEF059AEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D28AD558-9608-4911-B59D-100FEF059AEA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3903D560-89FD-4AE8-BEB1-22A7992070AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3903D560-89FD-4AE8-BEB1-22A7992070AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3903D560-89FD-4AE8-BEB1-22A7992070AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3903D560-89FD-4AE8-BEB1-22A7992070AC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{648CDF81-CEBC-4783-A90F-CA9CA0E78104}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{648CDF81-CEBC-4783-A90F-CA9CA0E78104}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{648CDF81-CEBC-4783-A90F-CA9CA0E78104}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{648CDF81-CEBC-4783-A90F-CA9CA0E78104}.Release|Any CPU.Build.0 = Release|Any CPU
-		{50AF5EDD-B609-4C31-932D-BF802E53358C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{50AF5EDD-B609-4C31-932D-BF802E53358C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{50AF5EDD-B609-4C31-932D-BF802E53358C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{50AF5EDD-B609-4C31-932D-BF802E53358C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{99C52C10-59DE-4640-9B08-B84D8A4B0B9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{99C52C10-59DE-4640-9B08-B84D8A4B0B9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{99C52C10-59DE-4640-9B08-B84D8A4B0B9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{99C52C10-59DE-4640-9B08-B84D8A4B0B9D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8A4AD821-9652-4780-A3E1-945DB1FD22B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8A4AD821-9652-4780-A3E1-945DB1FD22B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8A4AD821-9652-4780-A3E1-945DB1FD22B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8A4AD821-9652-4780-A3E1-945DB1FD22B7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2DA1A5D7-6536-4775-BD94-5ABEA630A631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2DA1A5D7-6536-4775-BD94-5ABEA630A631}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2DA1A5D7-6536-4775-BD94-5ABEA630A631}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2DA1A5D7-6536-4775-BD94-5ABEA630A631}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9FBB1660-CE05-48F5-B290-8D3289018F84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9FBB1660-CE05-48F5-B290-8D3289018F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9FBB1660-CE05-48F5-B290-8D3289018F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9FBB1660-CE05-48F5-B290-8D3289018F84}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7864FDDD-05DA-4EB7-8B38-8A20AAE1CC13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7864FDDD-05DA-4EB7-8B38-8A20AAE1CC13}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7864FDDD-05DA-4EB7-8B38-8A20AAE1CC13}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7864FDDD-05DA-4EB7-8B38-8A20AAE1CC13}.Release|Any CPU.Build.0 = Release|Any CPU
 		{291D4BED-AE0F-437D-BEAC-EB1C8EBE1865}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{291D4BED-AE0F-437D-BEAC-EB1C8EBE1865}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{291D4BED-AE0F-437D-BEAC-EB1C8EBE1865}.Release|Any CPU.ActiveCfg = Release|Any CPU
