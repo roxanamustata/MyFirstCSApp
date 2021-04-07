@@ -19,13 +19,7 @@ namespace Library
 
         public List<Category> Categories { get; set; } = new List<Category>();
 
-        public int Decade
-        {
-            get
-            {
-                return PublishDate.Year / 10;
-            }
-        }
+        public int Decade { get { return PublishDate.Year / 10; } }
 
         public override string ToString() => $"{Id}, {Title}, {PublishDate:dd/MM/yyyy}, {Author}, {Categories.DisplayAsString()}";
 

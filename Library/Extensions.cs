@@ -16,7 +16,8 @@ namespace Library
             Console.WriteLine();
         }
 
-        //I use this for displaying categories
+
+        // Used for displaying categories
         public static string DisplayAsString<T>(this IEnumerable<T> source)
         {
             var sb = new StringBuilder();
@@ -26,7 +27,7 @@ namespace Library
             }
             return sb.ToString();
         }
-        
+
         public static void DisplayIGrouping<T>(this IEnumerable<IGrouping<int, T>> source)
         {
 

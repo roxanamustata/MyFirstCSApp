@@ -36,50 +36,48 @@ namespace Library
             Collection.Remove(book);
         }
 
-        public void ListAllBooks()
-        {
-            Collection.Display();
-        }
 
-        public void ListAllBooksAfterYear(int year)
+        public List<Book> ListAllBooksAfterYear(int year)
         {
             var booksPublishedAfterYear = Collection.Where(b => b.PublishDate.Date.Year > year);
-            booksPublishedAfterYear.Display();
+            return booksPublishedAfterYear.ToList();
         }
 
-        public void ListAllBooksInCategory(Category category)
+        public List<Book> ListAllBooksInCategory(Category category)
         {
             var booksInCategory = Collection.Where(b => b.Categories.Contains(category));
-            booksInCategory.Display();
+            return booksInCategory.ToList();
         }
 
-        public void ListAuthorsWithAtLeastAGivenNumberOfBooks(int numberOfBooks)
+        public List<string> ListAuthorsWithAtLeastAGivenNumberOfBooks(int numberOfBooks)
         {
             var authorsWithAtLeastNBooks = Collection
                        .GroupBy(b => b.Author.Name)
                        .Where(g => g.Count() >= numberOfBooks)
-                       .Select(n => new { Name = n.Key });
+                       .Select(n => n.Key);
 
-            authorsWithAtLeastNBooks.Display();
+            return authorsWithAtLeastNBooks.ToList();
+
         }
 
-        public void ListAuthorsBornBeforeAndWithANumberofBooksInGivenCategory(int Year, int numberOfBooks, Category category)
+
+        public List<string> ListAuthorsBornBeforeAndWithANumberofBooksInGivenCategory(int Year, int numberOfBooks, Category category)
         {
             var authorsOverAndAtLeastBooksInCategory = Collection
                        .GroupBy(b => b.Author)
                        .Where(g => g.Key.BirthDate.Year < Year)
                        .Where(g => g.Key.Books.Count(b => b.Categories.Contains(category)) >= numberOfBooks)
-                       .Select(n => new { Name = n.Key });
+                       .Select(n => n.Key.Name);
 
-            authorsOverAndAtLeastBooksInCategory.Display();
+            return authorsOverAndAtLeastBooksInCategory.ToList();
         }
 
-        public void ListBooksGroupedByPublishingDecade()
+        public List<IGrouping<int, Book>> ListBooksGroupedByPublishingDecade()
         {
             var booksGroupedByPublishDecade = Collection
                 .GroupBy(b => b.Decade);
 
-            booksGroupedByPublishDecade.DisplayIGrouping();
+            return booksGroupedByPublishDecade.ToList();
 
         }
     }
